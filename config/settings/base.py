@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tailwind',
+    'theme',
+    'programs',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +116,10 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+TAILWIND_APP_NAME = 'theme'
+
+NPM_BIN_PATH = "D:/Program Files/nodejs/npm.cmd"
 
 # Email settings
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
