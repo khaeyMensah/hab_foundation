@@ -3,10 +3,14 @@ from django.shortcuts import render
 from programs.services import get_programs
 
 CORE_VALUES = [
-    "Compassion in action",
-    "Integrity and accountability",
-    "Community-centered service",
-    "Dignity for every life",
+    "Compassion",
+    "Integrity",
+    "Inclusiveness",
+    "Accountability",
+    "Respect for Human Dignity",
+    "Service to Humanity",
+    "Empowerment",
+    "Transparency",
 ]
 
 IMPACT_HIGHLIGHTS = [
