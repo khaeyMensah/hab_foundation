@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Impact | HAB Beacon of Hope Foundation{% endblock %}
+
+{% block content %}
+<section class="space-y-4">
+    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Impact</p>
+    <h1 class="text-4xl font-bold tracking-tight text-slate-900">Stories of service, care, and hope in action.</h1>
+    <p class="max-w-3xl text-base leading-7 text-slate-600">
+        This page introduces the kind of outcomes HAB Beacon of Hope Foundation is working toward as the platform grows.
+    </p>
+</section>
+
+<section class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    {% for highlight in impact_highlights %}
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <h2 class="text-xl font-semibold text-slate-900">{{ highlight.title }}</h2>
+            <p class="mt-3 text-sm leading-6 text-slate-600">{{ highlight.description }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+<section class="rounded-2xl bg-emerald-50 p-8">
+    <h2 class="text-2xl font-semibold text-slate-900">Looking ahead</h2>
+    <p class="mt-4 max-w-3xl text-base leading-7 text-slate-600">
+        In later phases, this page can be expanded with testimonials, outreach reports, beneficiary stories, and measurable statistics from the foundation's work.
+    </p>
+</section>
+{% endblock %}
+

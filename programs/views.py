@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from .models import Program
+
+from .services import get_programs
+
 
 def program_list(request):
-    programs = Program.objects.all()
-    return render(request, 'programs/list.html', {'programs': programs})
-
-def home(request):
-    return render(request, 'base.html')
-
+    programs = get_programs()
+    return render(request, "programs/list.html", {"programs": programs})

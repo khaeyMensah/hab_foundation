@@ -18,6 +18,22 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
+def get_bool_setting(name, default=False):
+    value = config(name, default=default)
+    if isinstance(value, bool):
+        return value
+
+    normalized = str(value).strip().lower()
+    truthy_values = {"1", "true", "yes", "on", "development", "dev", "local"}
+    falsy_values = {"0", "false", "no", "off", "release", "production", "prod"}
+
+    if normalized in truthy_values:
+        return True
+    if normalized in falsy_values:
+        return False
+    return default
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
@@ -25,7 +41,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = get_bool_setting('DEBUG', default=False)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost'], cast=Csv())
 
@@ -41,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tailwind',
     'theme',
+    'core',
     'programs',
 ]
 

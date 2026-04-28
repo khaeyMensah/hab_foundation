@@ -1,0 +1,47 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}HAB Beacon of Hope Foundation{% endblock %}</title>
+    {% tailwind_css %}
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900">
+    <div class="flex min-h-screen flex-col">
+        <header class="border-b border-slate-200 bg-white">
+            <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+                <a href="{% url 'core:home' %}" class="text-lg font-bold tracking-tight text-slate-900">
+                    HAB Beacon of Hope Foundation
+                </a>
+                <nav aria-label="Primary navigation">
+                    <ul class="flex flex-wrap gap-2 text-sm font-medium text-slate-600">
+                        <li><a href="{% url 'core:home' %}" class="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700 {% if request.path == '/' %}bg-emerald-50 text-emerald-700{% endif %}">Home</a></li>
+                        <li><a href="{% url 'core:about' %}" class="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700 {% if request.path == '/about/' %}bg-emerald-50 text-emerald-700{% endif %}">About</a></li>
+                        <li><a href="{% url 'programs:list' %}" class="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700 {% if request.path == '/programs/' %}bg-emerald-50 text-emerald-700{% endif %}">Programs</a></li>
+                        <li><a href="{% url 'core:impact' %}" class="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700 {% if request.path == '/impact/' %}bg-emerald-50 text-emerald-700{% endif %}">Impact</a></li>
+                        <li><a href="{% url 'core:contact' %}" class="rounded-full px-4 py-2 transition hover:bg-emerald-50 hover:text-emerald-700 {% if request.path == '/contact/' %}bg-emerald-50 text-emerald-700{% endif %}">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="flex-1">
+            <div class="mx-auto flex max-w-6xl flex-col gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+
+        <footer class="border-t border-slate-200 bg-white">
+            <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+                <div>
+                    <p class="font-semibold text-slate-900">HAB Beacon of Hope Foundation</p>
+                    <p>Touching Lives, Restoring Hope</p>
+                </div>
+                <p>&copy; {% now "Y" %} HAB Beacon of Hope Foundation. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
