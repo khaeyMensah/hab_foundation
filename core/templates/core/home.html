@@ -9,7 +9,7 @@
         <h1 class="text-3xl font-bold tracking-tight sm:text-5xl">HAB Beacon of Hope Foundation</h1>
         <p class="text-lg text-slate-200 sm:text-xl">Touching Lives, Restoring Hope</p>
         <p class="max-w-2xl text-base leading-7 text-slate-300">
-            We are committed to serving communities with compassion, practical support, and initiatives that create lasting change.
+            {{ main_objective }}
         </p>
         <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <a href="{% url 'programs:list' %}" class="rounded-full bg-amber-400 px-5 py-3 text-center text-sm font-semibold text-slate-900 transition hover:bg-amber-300">
@@ -25,20 +25,21 @@
 <section class="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
     <div class="space-y-4">
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">About the Foundation</p>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Serving with compassion, dignity, and purpose.</h2>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Health, dignity, and opportunity for vulnerable communities.</h2>
         <p class="text-base leading-7 text-slate-600">
-            HAB Beacon of Hope Foundation exists to uplift vulnerable communities through outreach, education support, and hope-driven programs that meet real needs.
+            HAB Beacon of Hope Foundation is dedicated to uplifting vulnerable populations through education, mentorship, healthcare, and community support that nurture potential and build resilient futures.
         </p>
         <a href="{% url 'core:about' %}" class="inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-800">
             Learn more about us
         </a>
     </div>
     <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-        <h3 class="text-lg font-semibold text-slate-900">What guides our work</h3>
-        <div class="mt-4 space-y-4 text-sm text-slate-600">
-            <p>We focus on people first, practical impact, and partnerships that strengthen communities.</p>
-            <p>Every initiative is shaped by compassion, accountability, and a commitment to restoring hope.</p>
-        </div>
+        <h3 class="text-lg font-semibold text-slate-900">Who we serve</h3>
+        <ul class="mt-4 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
+            {% for group in who_we_serve %}
+                <li class="rounded-xl bg-slate-50 px-4 py-3">{{ group }}</li>
+            {% endfor %}
+        </ul>
     </div>
 </section>
 
@@ -70,7 +71,7 @@
 <section class="space-y-6">
     <div>
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Impact</p>
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Highlights from our mission</h2>
+        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Recent milestones from the foundation's work</h2>
     </div>
     <div class="grid gap-6 md:grid-cols-3">
         {% for highlight in impact_highlights %}
@@ -87,7 +88,7 @@
         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Join the Mission</p>
         <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">Partner with us to reach more lives.</h2>
         <p class="text-base leading-7 text-slate-600">
-            Whether through support, collaboration, or volunteering, your involvement can help extend hope to more families and communities.
+            We welcome partners, volunteers, donors, and advocates who want to strengthen health outreach, education support, rehabilitation, orphan care, elderly wellness, and empowerment opportunities.
         </p>
         <a href="{% url 'core:contact' %}" class="inline-flex rounded-full bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800">
             Start a Conversation

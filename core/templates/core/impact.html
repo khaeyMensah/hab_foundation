@@ -5,13 +5,13 @@
 {% block content %}
 <section class="space-y-4">
     <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Impact</p>
-    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Stories of service, care, and hope in action.</h1>
+    <h1 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Stories of service, screening, support, and restored hope.</h1>
     <p class="max-w-3xl text-base leading-7 text-slate-600">
-        This page introduces the kind of outcomes HAB Beacon of Hope Foundation is working toward as the platform grows.
+        The foundation is already making a practical difference through health outreach, school reintegration support, prison education, orphan care, and elderly wellness visits.
     </p>
 </section>
 
-<section class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+<section class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
     {% for highlight in impact_highlights %}
         <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
             <h2 class="text-xl font-semibold text-slate-900">{{ highlight.title }}</h2>
@@ -20,10 +20,18 @@
     {% endfor %}
 </section>
 
-<section class="rounded-2xl bg-emerald-50 p-6 sm:p-8">
-    <h2 class="text-2xl font-semibold text-slate-900">Looking ahead</h2>
-    <p class="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-        In later phases, this page can be expanded with testimonials, outreach reports, beneficiary stories, and measurable statistics from the foundation's work.
-    </p>
+<section class="space-y-6 rounded-2xl bg-emerald-50 p-6 sm:p-8">
+    <div>
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Future Plans</p>
+        <h2 class="mt-2 text-2xl font-semibold text-slate-900">Where the foundation is headed next</h2>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2">
+        {% for priority in future_priorities %}
+            <article class="rounded-2xl bg-white p-5 shadow-sm">
+                <h3 class="text-lg font-semibold text-slate-900">{{ priority.title }}</h3>
+                <p class="mt-3 text-sm leading-6 text-slate-600">{{ priority.description }}</p>
+            </article>
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}
